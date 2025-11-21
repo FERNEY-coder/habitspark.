@@ -1,0 +1,127 @@
+:root {
+  --bg: #0b1220;
+  --card: #121a2b;
+  --accent: #47b8ff;
+  --accent-strong: #6a8cff;
+  --muted: #a9b6d9;
+  --text: #cbd5e1;
+  --success: #34d399;
+  --warning: #fbbf24;
+  --danger: #f87171;
+  --shadow: 0 12px 36px rgba(0,0,0,0.35);
+  --radius: 14px;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(90deg, #121a2b, #151f33);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+nav a {
+  color: var(--muted);
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover, nav a.activo {
+  color: var(--accent);
+}
+
+/* MAIN */
+main {
+  padding: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* TARJETAS */
+#datos-salud, 
+#habitos-saludables,
+#agua-section,
+#sueno-section {
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 25px;
+}
+
+/* GRID */
+.salud-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.dato {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+}
+.dato label {
+  color: var(--accent);
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+.dato input {
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--text);
+}
+
+/* BOTÓN IMC */
+#calcular-imc, .btn-salud {
+  background-color: var(--accent);
+  color: #0b1220;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+#calcular-imc:hover, .btn-salud:hover {
+  transform: scale(1.05);
+  background-color: var(--accent-strong);
+}
+
+/* BARRA IMC */
+#barra-imc-container {
+  width: 100%;
+  background: rgba(255,255,255,0.08);
+  height: 14px;
+  border-radius: 20px;
+  margin-top: 15px;
+  overflow: hidden;
+}
+
+#barra-imc-fill {
+  width: 0;
+  height: 100%;
+  background: var(--success);
+  transition: width 0.4s ease, background 0.4s ease;
+}
+
+#imc-estado {
+  margin-top: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+}

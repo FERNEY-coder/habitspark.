@@ -1,0 +1,351 @@
+:root {
+  --bg: #0b1220;
+  --card: #121a2b;
+  --accent: #47b8ff;
+  --accent-hover: #6a8cff;
+  --text: #e8f0ff;
+  --muted: #a9b6d9;
+  --shadow: 0 12px 36px rgba(0,0,0,0.35);
+  --radius: 14px;
+}
+
+body {
+  font-family: Inter, 'Segoe UI', sans-serif;
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* encabezado */
+header {
+  background: linear-gradient(90deg, #f8f8f9, #151f33);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+nav a {
+  color: var(--muted);
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+nav a:hover,
+nav a.activo {
+  color: var(--accent);
+}
+
+/* Main */
+main {
+  padding: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Buscador */
+#buscador-libros {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+#buscador-libros input,
+#buscador-libros select {
+  padding: 10px 12px;
+  font-size: 1em;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+}
+#buscador-libros input::placeholder {
+  color: var(--muted);
+}
+
+/* Libros recomendados */
+#libros-recomendados h2 {
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+.libros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  transition: opacity 0.3s ease;
+}
+
+/* Tarjeta de libro */
+.libro-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.2s ease;
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.libro-card:hover {
+  transform: scale(1.03);
+}
+.libro-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+.libro-card h4 {
+  font-size: 1.1em;
+  margin: 6px 0;
+  color: var(--accent);
+}
+.libro-card p {
+  font-size: 0.9em;
+  margin: 6px 0;
+  color: var(--muted);
+}
+
+/* Botón leer PDF */
+.libro-card button,
+.btn-leer {
+  background-color: var(--accent);
+  color: #0b1220;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.libro-card button:hover,
+.btn-leer:hover {
+  background-color: var(--accent-hover);
+  transform: scale(1.05);
+}
+
+/* Modo lectura */
+#modo-lectura {
+  background: rgba(255,255,255,0.06);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-top: 40px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+  animation: slideIn 0.4s ease forwards;
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+#modo-lectura h2 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+#modo-lectura p {
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 15px;
+  animation: bounceIn 0.6s ease;
+}
+@keyframes bounceIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+#contenido-libro {
+  max-height: 400px;
+  overflow-y: auto;
+  line-height: 1.6;
+  font-size: 1.05em;
+  padding: 14px;
+  background-color: rgba(255,255,255,0.04);
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text);
+}
+
+/* Botón cerrar modo lectura */
+#modo-lectura button {
+  margin-top: 20px;
+  background-color: #d35400;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+#modo-lectura button:hover {
+  background-color: #e67e22;
+  transform: scale(1.05);
+}
+:root {
+  --bg: #0b1220;
+  --card: #121a2b;
+  --accent: #47b8ff;
+  --accent-hover: #6a8cff;
+  --text: #5c687f;
+  --muted: #a9b6d9;
+  --shadow: 0 12px 36px rgba(74, 7, 7, 0.539);
+  --radius: 14px;
+}
+
+body {
+  font-family: Inter, 'Segoe UI', sans-serif;
+  margin: 0;
+  background-color: var(--bg);
+  color: var( #a9b6d9);
+}
+
+
+header {
+  background: linear-gradient(90deg, #121a2b, #151f33);
+  color: rgb(16, 3, 107);
+  padding: 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+nav a {
+  color: var(--muted);
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+nav a:hover,
+nav a.activo {
+  color: var(--accent);
+}
+
+/* Main */
+main {
+  padding: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Buscador */
+#buscador-libros {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+#buscador-libros input,
+#buscador-libros select {
+  padding: 10px 12px;
+  font-size: 1em;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+}
+#buscador-libros input::placeholder {
+  color: var(--muted);
+}
+
+/* Libros recomendados */
+.libros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Tarjeta */
+.libro-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.2s ease;
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+.libro-card:hover { transform: scale(1.03); }
+.libro-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+.libro-card h4 { color: var(--accent); margin: 6px 0; }
+.libro-card p { color: var(--muted); margin: 6px 0; }
+
+/* Botones */
+.btn-leer {
+  background-color: var(--accent);
+  color: #0b1220;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.btn-leer:hover {
+  background-color: var(--accent-hover);
+  transform: scale(1.05);
+}
+
+/* Modo lectura */
+#modo-lectura {
+  background: rgba(255,255,255,0.06);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-top: 40px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+}
+#contenido-libro {
+  max-height: 400px;
+  overflow-y: auto;
+  line-height: 1.6;
+  font-size: 1.05em;
+  padding: 14px;
+  background-color: rgba(255,255,255,0.04);
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text);
+}
+#modo-lectura button {
+  margin-top: 20px;
+  background-color: #d35400;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+#modo-lectura button:hover {
+  background-color: #e67e22;
+  transform: scale(1.05);
+}
+
+/* Historial */
+#historial ul {
+  list-style: none;
+  padding: 0;
+}
+#historial li {
+  margin: 6px 0;
+  color: var(--muted);
+}
+header h1 {
+  color: #ffffff;
+}
+

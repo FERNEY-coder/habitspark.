@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HABITSPARK</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Encabezado con logo -->
+  <header class="bloque-titulo">
+    <div class="logo-header">
+      <img src="/nova/logo.png" alt="Logo HabitSpark" class="logo-img" />
+      <div class="texto-encabezado">
+        <h1 class="titulo">HABITSPARK</h1>
+        <p class="subtitulo">Encuentra equilibrio y paz en cada hábito</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Botones principales -->
+  <div class="boton-fuera-header">
+    <a href="login.html" class="btn-login">Iniciar sesión</a>
+    <a href="nuevo_usuario.html" class="btn-crear-usuario">Crear Usuario</a>
+  </div>
+
+  <main class="main">
+    <!-- Hero principal -->
+    <section class="contenido-principal">
+      <h2>Bienvenido a <span class="resaltado">HABITSPARK</span></h2>
+      <p class="intro">Tu compañero ideal para construir hábitos saludables y alcanzar el equilibrio en tu vida diaria.</p>
+      <p class="intro">Regístrate hoy y comienza tu viaje hacia una vida más plena y consciente.</p>
+
+      <div class="imagen-principal">
+        <img src="/nova/gym.png" alt="Bienestar y hábitos saludables" />
+      </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section class="beneficios">
+      <h3>¿Por qué usar HABITSPARK?</h3>
+      <div class="beneficios-grid">
+        <div class="beneficio">
+          <h4>Crea hábitos duraderos</h4>
+          <p>Diseña rutinas personalizadas que se ajusten a tu ritmo y estilo de vida.</p>
+        </div>
+        <div class="beneficio">
+          <h4>Controla tu progreso</h4>
+          <p>Visualiza tu avance diario y mantén la motivación con estadísticas claras.</p>
+        </div>
+        <div class="beneficio">
+          <h4>Vive con propósito</h4>
+          <p>Mejora tu bienestar físico y mental con pequeños pasos cada día.</p>
+        </div>
+        <div class="beneficio">
+          <h4>Celebra tus logros</h4>
+          <p>Recibe recompensas visuales y mensajes positivos al completar tus hábitos.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Mascota interactiva -->
+  <div class="mascota-container">
+    <img src="/nova/nova.png" alt="Mascota HabitSpark" id="mascota" />
+  </div>
+
+  <!-- Popup FAQ flotante -->
+  <div id="faq" class="faq-bubble" aria-hidden="true">
+    <button id="cerrarFaq" class="cerrar-faq" aria-label="Cerrar">✖</button>
+    <h2 class="faq-title">Preguntas Frecuentes</h2>
+    <div class="faq-item">
+      <h3>¿Cómo creo una cuenta?</h3>
+      <p>Ve a “Crear Usuario” y llena el formulario. Tu contraseña debe coincidir.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Cómo inicio sesión?</h3>
+      <p>Haz clic en “Iniciar sesión” y usa tu correo y contraseña.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Cómo agrego un hábito?</h3>
+      <p>En tu panel, “Agregar hábito”: nombre, duración y período.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Cómo registro mi progreso?</h3>
+      <p>En el hábito: “Registrar actividad”, ingresa minutos y fecha.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Qué es la biblioteca recomendada?</h3>
+      <p>Libros sugeridos con descripción, autor, imagen y PDF.</p>
+    </div>
+  </div>
+
+  <!-- pie de pagina -->
+  <footer class="footer">
+    <p>© 2025 HABITSPARK — Creando equilibrio día a día.</p>
+  </footer>
+
+  <!-- Script -->
+  <script src="faq.js" defer></script>
+</body>
+</html>

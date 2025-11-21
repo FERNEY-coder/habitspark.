@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Salud | HabitSpark</title>
+  <link rel="stylesheet" href="salud.css">
+</head>
+
+<body>
+
+  <!-- Nova -->
+  <div id="nova-guia">
+    <img src="/nova/nova.png" alt="Nova" id="nova-avatar">
+    <div id="nova-mensaje">¡Vamos a mejorar tu salud!</div>
+  </div>
+  <script src="/nova/nova.js" defer></script>
+  <link rel="stylesheet" href="/nova/nova.css">
+
+  <!-- HEADER -->
+  <header>
+    <h1>Tu Salud</h1>
+    <nav>
+      <a href="dashboard.html">Inicio</a>
+      <a href="biblioteca.html">Biblioteca</a>
+      <a href="perfil.html">Perfil</a>
+      <a href="mis_logros.html">Logros</a>
+      <a href="salud.html" class="activo">Salud</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- DATOS MOSTRADOS DEL PERFIL -->
+    <section id="datos-salud-perfil">
+      <h3>Datos de salud</h3>
+      <p>Altura: <span id="altura-perfil">–</span></p>
+      <p>Peso: <span id="peso-perfil">–</span></p>
+      <p>IMC: <span id="imc-perfil">–</span></p>
+    </section>
+
+    <!-- TARJETA PRINCIPAL -->
+    <section id="datos-salud">
+      <h2> Datos personales </h2>
+
+      <div class="salud-grid">
+
+        <div class="dato">
+          <label>Altura (cm)</label>
+          <input type="number" id="altura" readonly>
+        </div>
+
+        <div class="dato">
+          <label>Peso (kg)</label>
+          <input type="number" id="peso" placeholder="Ej. 65">
+        </div>
+
+        <div class="dato">
+          <label>IMC</label>
+          <input type="text" id="imc" readonly>
+        </div>
+
+        <button id="calcular-imc">Calcular IMC</button>
+      </div>
+
+      <!-- Barra de estado del IMC -->
+      <div id="barra-imc-container">
+        <div id="barra-imc-fill"></div>
+      </div>
+
+      <p id="imc-estado">Estado: –</p>
+    </section>
+
+    <!-- AGUA -->
+    <section id="agua-section">
+      <h2>Hidratación</h2>
+      <p>Llevas <span id="agua-contador">0</span> vasos hoy</p>
+      <button id="agregar-agua" class="btn-salud">+1 vaso</button>
+    </section>
+
+    <!-- SUEÑO -->
+    <section id="sueno-section">
+      <h2> Sueño </h2>
+      <div class="dato">
+        <label>Horas dormidas</label>
+        <input type="number" id="horas-sueno" placeholder="Ej. 7">
+      </div>
+      <button id="guardar-sueno" class="btn-salud">Guardar</button>
+    </section>
+
+    <!-- HABITOS SALUDABLES -->
+    <section id="habitos-saludables">
+      <h2>Hábitos saludables</h2>
+      <ul>
+        <li>Caminatas diarias</li>
+        <li>Alimentación balanceada</li>
+        <li>Descanso completo</li>
+        <li>Hidratación constante</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <script src="salud.js" defer></script>
+</body>
+</html>

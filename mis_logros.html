@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Logros | HABITSPARK</title>
+  <link rel="stylesheet" href="mis_logros.css" />
+  <link rel="stylesheet" href="/nova/nova.css" />
+  <script src="/nova/nova.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Mis Logros</h1>
+    <nav>
+      <ul>
+        <li><a href="dashboard.html">Inicio</a></li>
+        <li><a href="biblioteca.html">Biblioteca</a></li>
+        <li><a href="perfil.html">Perfil</a></li>
+          <a href="mis_logros.html" class="activo">Logros</a>
+        <li><a href="salud.html">salud</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="logros-lectura">
+      <h2>Logros de Lectura</h2>
+      <div id="lista-logros" class="medallas"></div>
+    </section>
+
+    <section id="medallas">
+      <h2>Medallas Desbloqueadas</h2>
+      <div id="lista-medallas" class="medallas"></div>
+    </section>
+  </main>
+
+  <aside id="nova-guia" aria-live="polite">
+    <img src="/nova/nova.png" alt="Nova, tu guía" id="nova-avatar" />
+    <div id="nova-mensaje">¿Necesitas ayuda con esta sección?</div>
+  </aside>
+
+  <script src="mis_logros.js"></script>
+</body>
+</html>

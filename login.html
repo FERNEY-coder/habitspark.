@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciar sesión | HABITSPARK</title>
+  <link rel="stylesheet" href="login.css" />
+  <style>
+    .error-box {
+      background-color: #ffe0e0;
+      color: #b30000;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header class="header-login">
+    <h1 class="titulo">HABITSPARK</h1>
+    <p class="subtitulo">Encuentra equilibrio y paz en cada hábito</p>
+  </header>
+
+  <main class="main-login">
+    <section class="login-form">
+      <h2>Iniciar sesión</h2>
+
+      <div id="error-message" class="error-box"></div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="email">Correo</label>
+          <input type="email" id="email" name="email" placeholder="Ingresa tu correo" required />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required />
+        </div>
+
+        <button type="submit" class="btn-login">Iniciar sesión</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer-login">
+    <p>&copy; 2025 HABITSPARK. Privacidad total.</p>
+  </footer>
+
+<script src="login.js"></script>
+
+</body>
+</html>

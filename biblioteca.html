@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Biblioteca | HabitSpark</title>
+  <link rel="stylesheet" href="biblioteca.css">
+</head>
+<body>
+  <!-- Nova guía -->
+  <div id="nova-guia">
+    <img src="/nova/nova.png" alt="Nova, tu guía" id="nova-avatar">
+    <div id="nova-mensaje">¿Necesitas ayuda con esta sección?</div>
+  </div>
+  <script src="/nova/nova.js" defer></script>
+  <link rel="stylesheet" href="/nova/nova.css">
+
+  <!-- Encabezado -->
+  <header>
+    <h1>Biblioteca</h1>
+    <nav>
+      <a href="dashboard.html">Inicio</a>
+      <a href="biblioteca.html" class="activo">Biblioteca</a>
+      <a href="perfil.html">Perfil</a>
+      <a href="mis_logros.html">Logros</a>
+      <a href="salud.html">Salud</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Buscador -->
+    <section id="buscador-libros">
+      <input type="text" id="buscar-titulo" placeholder="🔍 Buscar por título...">
+      <select id="filtrar-categoria">
+        <option value="">Todas las categorías</option>
+        <option value="Literatura">Literatura</option>
+        <option value="Terror">Terror</option>
+        <option value="Aventura">Aventura</option>
+        <option value="Historia">Historia</option>
+        <option value="Acción">Acción</option>
+        <option value="Romance">Romance</option>
+        <option value="Ciencia ficción">Ciencia ficción</option>
+      </select>
+    </section>
+
+    <!-- Libros recomendados -->
+    <section id="libros-recomendados">
+      <h2> Libros recomendados</h2>
+      <div id="lista-libros" class="libros-grid"></div>
+    </section>
+
+    <!-- Favoritos -->
+    <section id="favoritos">
+      <h2>Tus favoritos</h2>
+      <div class="libros-grid" id="lista-favoritos"></div>
+    </section>
+
+    <!-- Historial -->
+    <section id="historial">
+      <h2> Historial de lectura</h2>
+      <ul id="lista-historial"></ul>
+    </section>
+
+    <!-- Modo lectura -->
+    <section id="modo-lectura" style="display:none;">
+
+      <!-- Barra de progreso automática  -->
+      <div id="barra-progreso-container">
+        <div id="barra-progreso"></div>
+      </div>
+
+      <!-- Progreso manual -->
+      <div id="progreso-manual">
+        <label for="pagina-input">Ir a página:</label>
+        <input type="number" id="pagina-input" min="1">
+        <button id="btn-ir-pagina" class="btn-leer">Ir</button>
+      </div>
+
+      <div id="logros-lectura"></div>
+      <h2 id="titulo-libro"></h2>
+      <p id="autor-libro"></p>
+      <div id="contenido-libro" class="modo-lectura"></div>
+
+      <!-- Mostrar página actual -->
+      <p id="contador-pagina">Página 1</p>
+
+      <button id="btn-cerrar-lectura" class="btn-leer">Cerrar</button>
+    </section>
+  </main>
+
+  <script src="biblioteca.js" defer></script>
+</body>
+</html>

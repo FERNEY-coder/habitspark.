@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard | HABITSPARK</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <link rel="stylesheet" href="/nova/nova.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+  <div class="logo-header">
+    <img src="/nova/logo.png" alt="Logo HabitSpark" class="logo-img">
+    <h1>HABITSPARK - Inicio</h1>
+  </div>
+</header>
+
+  <!-- Encabezado -->
+  <header>
+    <h1>HABITSPARK - Inicio</h1>
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="dashboard.html" class="activo">Inicio</a></li>
+        <li><a href="biblioteca.html">Biblioteca</a></li>
+        <li><a href="perfil.html">Perfil</a></li>
+        <li><a href="mis_logros.html">Logros</a></li>
+        <li><a href="salud.html">Salud</a></li>
+      </ul>
+    </nav>
+    <form id="logoutForm" onsubmit="event.preventDefault(); window.location.href='index.html';" aria-label="Cerrar sesión">
+      <button type="submit">Cerrar sesión</button>
+    </form>
+  </header>
+
+  <!-- Saludo -->
+  <section aria-labelledby="saludo">
+    <h2 id="saludo-usuario">Cargando usuario...</h2>
+    <p id="frase-motivadora" class="frase-motivadora"></p>
+  </section>
+
+  <main>
+    <!-- Panel de resumen -->
+    <section id="resumen-habitos">
+      <div class="resumen-card">
+        <h3>Hábitos activos</h3>
+        <p id="total-habitos">0</p>
+      </div>
+      <div class="resumen-card">
+        <h3>Racha más larga</h3>
+        <p id="racha-max">0 días</p>
+      </div>
+      <div class="resumen-card">
+        <h3>Minutos esta semana</h3>
+        <p id="minutos-semana">0</p>
+      </div>
+      <div class="resumen-card">
+        <h3>Completados hoy</h3>
+        <p id="completados-hoy">0</p>
+      </div>
+    </section>
+
+    <!-- Registro rápido -->
+    <section id="registro-rapido">
+      <h2>Registro rápido</h2>
+      <div class="registro-habito">
+        <label for="fecha-log">Fecha:</label>
+        <input type="date" id="fecha-log">
+        <label for="minutos-log">Minutos:</label>
+        <input type="number" id="minutos-log" min="0" placeholder="Ej: 15">
+        <button id="btn-registrar">Registrar</button>
+      </div>
+      <p class="hint">Se registrará en tu hábito principal (el primero de la lista). Puedes cambiarlo desde “Abrir”.</p>
+    </section>
+
+    <!-- Gráfica comparativa -->
+    <section id="grafica-comparativa">
+      <h2>Comparativa semanal</h2>
+      <div class="chart-wrapper">
+        <canvas id="chart-general" aria-label="Gráfica comparativa"></canvas>
+      </div>
+    </section>
+    
+
+    <!-- Tendencia semanal-->
+    <section id="trend-week-section">
+      <div class="chart-card">
+        <div class="chart-header">
+          <h2 class="chart-title">Tendencia semanal</h2>
+          <div class="chart-actions">
+            <button id="toggle-type">Barras/Líneas</button>
+            <button id="toggle-fill">Relleno ON/OFF</button>
+          </div>
+        </div>
+        <div class="chart-legend-inline">Minutos por intervalo · Objetivo y promedio</div>
+        <canvas id="trend-week"></canvas>
+        <div class="chart-footnote">Consejo: mantén tus intervalos cerca del objetivo.</div>
+      </div>
+    </section>
+
+    <!-- Calendario-->
+    <section id="calendar-heatmap">
+      <div class="heatmap-header">
+        <h2>Consistencia mensual</h2>
+        <div class="heatmap-controls">
+          <button id="prev-month" aria-label="Mes anterior">◀</button>
+          <span id="heatmap-month-label">Mes actual</span>
+          <button id="next-month" aria-label="Mes siguiente">▶</button>
+        </div>
+      </div>
+      <div class="heatmap-legend">
+        <span>Intensidad:</span>
+        <span class="legend-box level-0" title="Sin minutos"></span>
+        <span class="legend-box level-1" title="Baja"></span>
+        <span class="legend-box level-2" title="Media"></span>
+        <span class="legend-box level-3" title="Alta"></span>
+        <span class="legend-box level-4" title="Muy alta"></span>
+      </div>
+      <div class="heatmap-grid">
+        <div class="weekday">Lun</div>
+        <div class="weekday">Mar</div>
+        <div class="weekday">Mié</div>
+        <div class="weekday">Jue</div>
+        <div class="weekday">Vie</div>
+        <div class="weekday">Sáb</div>
+        <div class="weekday">Dom</div>
+        <div id="heatmap-cells" class="cells"></div>
+      </div>
+      <div id="heatmap-tooltip" class="heatmap-tooltip" style="display:none;"></div>
+    </section>
+
+    <!-- Crear hábito -->
+    <section id="create-habit">
+      <h2>Crear hábito</h2>
+      <form id="newHabitForm">
+        <input name="nombre" placeholder="Nombre del hábito" required />
+        <input name="objetivo_minutos_per" type="number" min="0" value="10" required />
+        <select name="periodo" aria-label="Periodo del hábito">
+          <option value="diario">Diario</option>
+          <option value="semanal">Semanal</option>
+          <option value="mensual">Mensual</option>
+        </select>
+        <button type="submit">Crear</button>
+      </form>
+    </section>
+
+    <!-- Metas rápidas -->
+    <section id="goals-quick">
+      <h2>Metas rápidas</h2>
+      <div class="goals-grid">
+        <div class="goal-card">
+          <h3>Lectura mensual</h3>
+          <p>Meta: 20 días de lectura</p>
+          <div class="goal-progress">
+            <div class="bar"><span style="width: 40%;"></span></div>
+            <small>8 / 20 días</small>
+          </div>
+        </div>
+        <div class="goal-card">
+          <h3>Movimiento semanal</h3>
+          <p>Meta: 150 min de actividad</p>
+          <div class="goal-progress">
+            <div class="bar"><span style="width: 60%;"></span></div>
+            <small>90 / 150 min</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lista de hábitos -->
+    <section id="habits-list">
+      <h2>Tus hábitos</h2>
+      <div id="lista">
+        <div id="tus-habitos">
+          <h3>Progreso general</h3>
+          <canvas id="grafica-habito" width="400" height="200" aria-label="Minutos por día - todos los hábitos"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detalle de hábito -->
+    <section id="habit-detail" style="display:none;">
+      <h3 id="habit-name"></h3>
+      <form id="logForm" aria-label="Registrar progreso">
+        <label for="minutos">Minutos</label>
+        <input id="minutos" type="number" min="0" value="10" required />
+        <label for="fecha">Fecha</label>
+        <input id="fecha" type="date" required />
+        <button type="submit">Registrar</button>
+      </form>
+      <p>Racha actual: <strong id="streak">0</strong></p>
+      <div id="logros-habito"></div>
+      <div class="chart-wrapper">
+        <canvas id="habit-chart" width="800" height="300"></canvas>
+      </div>
+      <button id="backBtn">Volver</button>
+    </section>
+
+    <!-- IMC -->
+    <section id="salud">
+      <h2 class="sr-only">Salud</h2>
+      <div class="card-salud">
+        <h4>Tu IMC actual</h4>
+        <p id="imc-dashboard">–</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Mascota acciones-->
+  <aside id="mascota-dashboard" aria-live="polite">
+    <img id="mascota" src="/nova/nova1.png" alt="Mascota HabitSpark">
+    <div id="mensaje-mascota"></div>
+  </aside>
+
+  <!-- Nova -->
+  <aside id="nova-guia" aria-live="polite">
+    <img src="/nova/nova.png" alt="Nova, tu guía" id="nova-avatar">
+    <div id="nova-mensaje">¿Necesitas ayuda con esta sección?</div>
+  </aside>
+
+  <!-- Scripts -->
+  <script src="/nova/nova.js" defer></script>
+  <script src="/dashboard.js" defer></script>
+
+  <script>
+    const labelsDemo = ['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'];
+    const dataAzul = [12, 18, 22, 25, 27, 28, 30];
+    const dataNaranja = [8, 14, 9, 20, 24, 21, 26];
+    const ctxGeneral = document.getElementById('chart-general')?.getContext('2d');
+    if (ctxGeneral) {
+      const gradAzul = ctxGeneral.createLinearGradient(0, 0, 0, 300);
+      gradAzul.addColorStop(0, 'rgba(71,184,255,0.35)');
+      gradAzul.addColorStop(1, 'rgba(71,184,255,0.02)');
+      const gradNaranja = ctxGeneral.createLinearGradient(0, 0, 0, 300);
+      gradNaranja.addColorStop(0, 'rgba(243,156,18,0.35)');
+      gradNaranja.addColorStop(1, 'rgba(243,156,18,0.02)');
+      new Chart(ctxGeneral, {
+        type: 'line',
+        data: {
+          labels: labelsDemo,
+          datasets: [
+            { label: 'Minutos (Azul)', data: dataAzul, borderColor: 'rgba(71,184,255,1)', backgroundColor: gradAzul, fill: true, tension: 0.35, pointRadius: 3, pointHoverRadius: 5, pointBackgroundColor: 'rgba(71,184,255,1)', pointBorderWidth: 0 },
+            { label: 'Minutos (Naranja)', data: dataNaranja, borderColor: 'rgba(243,156,18,1)', backgroundColor: gradNaranja, fill: true, tension: 0.35, pointRadius: 3, pointHoverRadius: 5, pointBackgroundColor: 'rgba(243,156,18,1)', pointBorderWidth: 0 }
+          ]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { color: '#cbd5e1', boxWidth: 12, usePointStyle: true, pointStyle: 'line' } },
+            tooltip: { mode: 'index', intersect: false, backgroundColor: 'rgba(0,0,0,0.75)', titleColor: '#fff', bodyColor: '#fff', borderColor: 'rgba(255,255,255,0.2)', borderWidth: 1,
+              callbacks: { label: (ctx) => `${ctx.dataset.label}: ${ctx.formattedValue} min` } }
+          },
+          scales: {
+            x: { grid: { color: 'rgba(255,255,255,0.06)' }, ticks: { color: '#a9b6d9' } },
+            y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.06)' }, ticks: { color: '#a9b6d9', stepSize: 5 } }
+          },
+          elements: { line: { borderWidth: 2 } }
+        }
+      });
+    }
+  </script>
+  <script>
+  const mascota = document.getElementById('mascota');
+  let frame = 1;
+
+  setInterval(() => {
+    frame = frame === 1 ? 2 : 1;
+    mascota.src = `/nova/nova${frame}.png`;
+  }, 600); 
+</script>
+
+</body>
+</html>

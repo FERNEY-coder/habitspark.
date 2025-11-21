@@ -1,0 +1,280 @@
+/* Base y paleta */
+:root {
+  --bg: #0b1220;
+  --card: #121a2b;
+  --accent: #47b8ff;
+  --accent-hover: #6a8cff;
+  --muted: #a9b6d9;
+  --text: #cbd5e1;
+  --success: #34d399;
+  --warn: #f39c12;
+  --radius: 14px;
+  --shadow: 0 12px 36px rgba(0,0,0,0.35);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Encabezado */
+.bloque-titulo {
+  background: linear-gradient(90deg, #121a2b, #151f33);
+  padding: 20px 30px;
+  box-shadow: var(--shadow);
+
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.texto-encabezado {
+  margin-left: 16px;
+}
+.logo-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.logo-img {
+  height: 56px;
+  width: auto;
+}
+.titulo {
+  margin: 0;
+  font-size: 1.8rem;
+  color: var(--accent);
+}
+.subtitulo {
+  margin: 4px 0 0;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+/* Botones principales */
+.boton-fuera-header {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 20px 0;
+}
+.btn-login,
+.btn-crear-usuario {
+  background-color: var(--accent);
+  color: #0b1220;
+  padding: 10px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background 0.2s ease;
+}
+.btn-login:hover,
+.btn-crear-usuario:hover {
+  background-color: var(--accent-hover);
+}
+.btn-crear-usuario.grande {
+  font-size: 1.1rem;
+  padding: 12px 24px;
+}
+
+/* Main */
+.main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+/* Hero principal */
+.contenido-principal h2 {
+  font-size: 1.6rem;
+  color: var(--accent);
+}
+.resaltado {
+  color: var(--success);
+}
+.intro {
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.imagen-principal {
+  display: flex;
+  justify-content: center;
+}
+
+.imagen-principal img {
+  width: 50%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-top: 20px;
+}
+
+/* Beneficios */
+.beneficios {
+  margin-top: 40px;
+}
+.beneficios h3 {
+  font-size: 1.4rem;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+.beneficios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.beneficio {
+  background: var(--card);
+  padding: 18px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.beneficio h4 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+.beneficio p {
+  margin: 0;
+  color: var(--muted);
+}
+
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+/* Responsivo general */
+@media (max-width: 640px) {
+  .logo-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .boton-fuera-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .main {
+    padding: 20px;
+  }
+}
+
+/* Mascota */
+.mascota-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.mascota-container img {
+  width: 80px;
+  transition: transform 0.3s ease;
+}
+
+.mascota-container img:hover {
+  transform: scale(1.1);
+}
+
+/* FAQ flotante estilo burbuja */
+.faq-bubble {
+  position: fixed;
+  right: 30px;
+  bottom: 120px;
+  width: 320px;
+  max-height: 60vh;
+  display: none;
+  padding: 14px 16px 16px 16px;
+  border-radius: 14px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+  backdrop-filter: blur(4px);
+  background: linear-gradient(180deg, #0e1a2f 0%, #0b1426 100%);
+  border: 1px solid rgba(71,184,255,0.22);
+  color: #cfe6ff;
+  z-index: 9999;
+  overflow-y: auto;
+}
+
+/* Flechita hacia la mascota */
+.faq-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  right: 40px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #0b1426;
+  filter: drop-shadow(0 -2px 2px rgba(0,0,0,0.2));
+}
+
+/* Mostrar FAQ */
+.faq-bubble.active {
+  display: block;
+}
+
+/* Botón cerrar */
+.cerrar-faq {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #8fbef0;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.cerrar-faq:hover {
+  color: #47b8ff;
+  transform: scale(1.05);
+}
+
+/* Títulos y contenido */
+.faq-title {
+  margin: 0 24px 8px 0;
+  font-size: 1rem;
+  color: #9bd2ff;
+}
+
+.faq-item {
+  margin-bottom: 10px;
+}
+
+.faq-item h3 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+  color: #7fc0ff;
+}
+
+.faq-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #cfe6ff;
+  opacity: 0.92;
+}
+
+/* Ajuste móvil */
+@media (max-width: 640px) {
+  .faq-bubble {
+    right: 16px;
+    bottom: 110px;
+    width: calc(100vw - 32px);
+    max-height: 50vh;
+  }
+  .faq-bubble::after {
+    right: 36px;
+  }
+}

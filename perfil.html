@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Perfil | HabitSpark</title>
+  <link rel="stylesheet" href="perfil.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <!-- Nova guía -->
+  <div id="nova-guia">
+    <img src="/nova/nova.png" alt="Nova, tu guía" id="nova-avatar">
+    <div id="nova-mensaje">¿Necesitas ayuda con esta sección?</div>
+  </div>
+  <script src="/nova/nova.js" defer></script>
+  <link rel="stylesheet" href="/nova/nova.css">
+
+  <!-- Encabezado -->
+  <header>
+    <h1>Tu Perfil</h1>
+    <nav>
+      <a href="dashboard.html">Inicio</a>
+      <a href="biblioteca.html">Biblioteca</a>
+      <a href="perfil.html" class="activo">Perfil</a>
+      <a href="mis_logros.html">Logros</a>
+      <a href="salud.html">salud</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Sección principal del perfil -->
+    <section id="perfil-usuario">
+      <div class="avatar-container">
+        <img src="/avatars/avatar_default.png" alt="Tu avatar" id="avatar-actual">
+        <button id="btn-cambiar-avatar">Cambiar avatar</button>
+      </div>
+
+      <div class="info-usuario">
+        <h2 id="nombre-usuario">Ferney</h2>
+        <p id="descripcion-usuario">Apasionado por la programación, la visualización de algoritmos y la mejora continua.</p>
+        <button id="btn-editar-descripcion">Editar descripción</button>
+        <p id="info-motivacion" class="frase-motivadora"></p>
+      </div>
+    </section>
+
+    <!-- Galería de selección de avatares -->
+    <section id="galeria-avatares" style="display: none;">
+      <h3> Elige tu nuevo avatar</h3>
+      <div class="avatar-grid">
+        <img src="/avatars/pato.png" class="avatar-opcion" alt="Pato">
+        <img src="/avatars/rinoceronte.png" class="avatar-opcion" alt="Rinoceronte">
+        <img src="/avatars/flamenco.png" class="avatar-opcion" alt="Flamenco">
+        <img src="/avatars/tiburon.png" class="avatar-opcion" alt="Tiburón">
+        <img src="/avatars/mapache.png" class="avatar-opcion" alt="Mapache">
+        <img src="/avatars/leon.png" class="avatar-opcion" alt="León">
+        <img src="/avatars/cebra.png" class="avatar-opcion" alt="Cebra">
+        <img src="/avatars/elefante.png" class="avatar-opcion" alt="Elefante">
+        <img src="/avatars/tucan.png" class="avatar-opcion" alt="Tucán">
+      </div>
+    </section>
+
+    <!-- Resumen de progreso -->
+    <section id="resumen-progreso">
+      <div class="resumen-card">
+        <h3>Hábitos completados hoy</h3>
+        <p id="habitos-hoy">0</p>
+      </div>
+      <div class="resumen-card">
+        <h3>Racha actual</h3>
+        <p id="racha-actual">0 días</p>
+      </div>
+      <div class="resumen-card">
+        <h3>Logros desbloqueados</h3>
+        <p id="logros-total">0</p>
+      </div>
+    </section>
+
+    <!-- Áreas de mejora con barras -->
+    <section id="mejoras-personales">
+      <h3> Áreas en las que estás mejorando</h3>
+      <ul>
+        <li>Visualización de árboles y grafos
+          <div class="barra"><div class="relleno" style="width: 80%;"></div></div>
+        </li>
+        <li>Integración frontend-backend
+          <div class="barra"><div class="relleno" style="width: 65%;"></div></div>
+        </li>
+        <li>Optimización de rutas y navegación
+          <div class="barra"><div class="relleno" style="width: 50%;"></div></div>
+        </li>
+        <li>Documentación técnica clara
+          <div class="barra"><div class="relleno" style="width: 40%;"></div></div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Medallas recientes -->
+    <section id="medallas-perfil">
+      <h3> Logros recientes</h3>
+      <div class="medallas-perfil">
+        <img src="/nova/medalla_lectura.png" alt="Lectura" title="Lectura constante">
+        <img src="/nova/medalla_habito.png" alt="Hábitos" title="Hábito diario">
+        <img src="/nova/medalla_racha.png" alt="Racha" title="7 días seguidos">
+      </div>
+    </section>
+
+    <!-- Gráfica de evolución -->
+    <section id="grafica-evolucion">
+      <h3>Tu evolución personal</h3>
+      <canvas id="graficoProgreso"></canvas>
+    </section>
+
+  <!-- Mascota reactiva -->
+  <aside id="mascota-perfil" aria-live="polite">
+    <img id="mascota" src="/nova/nova1.png" alt="Mascota HabitSpark">
+    <div id="mensaje-mascota"></div>
+  </aside>
+
+  <script src="perfil.js" defer></script>
+</body>
+</html>
